@@ -13,8 +13,12 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
     <title>Tip Calculator</title>
   </head>
+
+
   <body>
     <div class="wrapper">
+
+<!--   Bill Total Section     -->
       <div class="container" id="topContainer">
         <div class="title">Bill total</div>
         <div class="inputContainer">
@@ -27,6 +31,8 @@
           />
         </div>
       </div>
+
+<!--   Tip Section -->
       <div class="container">
         <div class="title">Tip</div>
         <div class="inputContainer">
@@ -39,27 +45,36 @@
           />
         </div>
       </div>
+
+<!--   People and Calculated Answer Section -->
       <div class="container" id="bottom">
         <div class="splitContainer">
           <div class="title">People</div>
+
           <div class="controls">
+<!--            Positive Round Button-->
             <span class="buttonContainer">
               <button class="splitButton" onclick="increasePeople()">
                 <span class="buttonText">+</span>
               </button>
             </span>
+<!--            Number to increase or decrease-->
             <span class="splitAmount" id="numberOfPeople">1</span>
+<!--            Negative Round Button-->
             <span class="buttonContainer">
               <button class="splitButton" onclick="decreasePeople()">
                 <span class="buttonText">-</span>
               </button>
             </span>
           </div>
+
         </div>
+<!--        Calculated Answer -->
         <div class="totalContainer">
           <div class="title">Total per Person</div>
           <div class="total" id="perPersonTotal">$0.00</div>
         </div>
+
       </div>
     </div>
 
