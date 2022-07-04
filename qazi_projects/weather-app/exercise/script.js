@@ -1,33 +1,43 @@
-/**
- * Weather App
- * TODO: Complete getWeatherData() to return json response Promise
- * TODO: Complete searchCity() to get user input and get data using getWeatherData()
- * TODO: Complete showWeatherData() to set the data in the the html file from response
- */
+console.log("Hello")
 
 // API_KEY for maps api
 let API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
+let form = document.querySelector("form");
+
+
+
+
 
 /**
  * Retrieve weather data from openweathermap
  * HINT: Use fetch()
- * HINT: URL should look like this: 
- * https://api.openweathermap.org/data/2.5/weather?q=detroit&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=imperial
+ * HINT: URL should look like this:
+ * https://api.openweathermap.org/data/2.5/weather?q=sukkur&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=metric
  */
 getWeatherData = (city) => {
   const URL = "https://api.openweathermap.org/data/2.5/weather";
-  //HINT: Use template literals to create a url with input and an API key
+  const API = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=metric`;
 
-  //CODE GOES HERE
+  const data = fetch(API)
+      .then(response => response.json())
+      .catch(error => console.log(error));
+
+
+  return data;
+  // console.log(data.then(data => data));
 }
 
 /**
  * Retrieve city input and get the weather data
  * HINT: Use the promise returned from getWeatherData()
  */
-searchCity = () => {
+searchCity = (e) => {
+  // e.preventDefault();
   const city = document.getElementById('city-input').value;
   // CODE GOES HERE
+  getWeatherData(city)
+      .then(data => showWeatherData(data))
+      .catch(error => console.log(error));
 
 }
 
@@ -37,6 +47,15 @@ searchCity = () => {
  */
 showWeatherData = (weatherData) => {
   //CODE GOES HERE
-  
+  console.log(weatherData);
+  document.getElementById("city-name").innerText = weatherData.name;
+
+  document.getElementById("weather-type").innerText = weatherData.weather[0].main;
+  document.getElementById("temp").innerText = weatherData.main.temp;
+  document.getElementById("min-temp").innerText = weatherData.main.temp_min;
+  document.getElementById("max-temp").innerText = weatherData.main.temp_max;
+
+
+
 }
 
