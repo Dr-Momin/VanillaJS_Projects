@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+:root{
+    --bg-color: #2f363e;
+    --green: #04fc43;
+    --yellow: #fee800;
+    --pink: #ff2972;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    color: #fff;
+}
+
+/*======================= Container =============================*/
+
+.container{
+    box-shadow: 0 0 10px rgba(0,0,0.5),
+    0 0 10px rgba(0,0,0.3),
+    inset 0 0 20px rgba(0,0,0.45);
+    min-height: 550px;
+    border-radius: 300px 300px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+
+/*======================= Clock =============================*/
+
+.clock{
+    width: 450px;
+    min-height: 450px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    /*border: 2px solid white;*/
+    box-shadow: 0 0 10px rgba(0,0,0.5),
+    0 0 10px rgba(0,0,0.3),
+    inset 0 0 20px rgba(0,0,0.45);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock::before{
+    content: '';
+    inset: 0;
+    /*position: absolute;*/
+    width: 8px; height: 8px;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 1000;
+
+}
+
+.clock span{
+    margin:7px;
+    position: absolute;
+    inset: 0;text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b{
+    font-size: 1.7rem;
+    opacity: 0.5;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+
+/*======================= Circle =============================*/
+
+.circle{
+    position: absolute;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.circle:nth-child(2){
+    width: 280px; height: 280px;
+}
+.circle:nth-child(3){
+    width: 200px; height: 200px;
+}
+
+
+.circle i{
+    position: absolute;
+    height: 50%;
+    width: 5px;
+    background: var(--clr);
+    transform: scale(0.5);
+    transform-origin: bottom;
+
+}
+
+.circle::before{
+    content: '';
+    width: 15px; height: 15px;
+    background: var(--clr);
+    border-radius: 50%;
+    transform: translateY(-8px);
+    box-shadow: 0 0  5px var(--clr);
+}
+
+
+
+/*======================= Digital Clock  =============================*/
+#time{
+    display: flex;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border: 2px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0.5),
+    inset 0 0 10px rgba(0,0,0.25);
+    border-radius: 3rem;
+    padding: .5rem 1.5rem;
+}
+
+#time div {
+    margin: 0 1rem;
+}
+
+#hour{
+    color: var(--pink)
+}
+
+#minutes{
+    color: var(--yellow)
+}
+
+#seconds{
+    color: var(--green)
+}
+
+#ampm{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
